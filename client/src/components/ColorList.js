@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { useParams } from 'react-router-dom';
+// import axios from "axios";
+import { axiosWithAuth } from './axiosWithAuth';
 
 const initialColor = {
   color: "",
@@ -21,18 +23,41 @@ const ColorList = ({ colors, updateColors }) => {
     // Make a put request to save your updated color
     // think about where will you get the id from...
     // where is is saved right now?
+    axiosWithAuth()
+    .put(`http://localhost:5000/api/colors/${colorToEdit.id}`, colorToEdit)
+    .then(({data})=> {
+      updateColors(colors.map(color=> {
+        if (color.id === data.id){
+          return color;
+        }
+      }));
+    })
+    .catch(err=> {
+      console(err);
+    })
   };
 
+
   const deleteColor = color => {
-    // make a delete request to delete this color
+  // make a dele request to delete this color
+  axiosWithAuth()
+    .delete(`http://localhost:5000/api/colors/${color.id}`)
+    .then(({data})=> {
+      updateColors(
+        colors.filter(item=> item.id !== color.id)
+      );
+    }).catch(err=> {
+      console(err);
+    })
   };
+
 
   return (
     <div className="colors-wrap">
       <p>colors</p>
       <ul>
         {colors.map(color => (
-          <li key={color.color} onClick={() => editColor(color)}>
+          <li data=testid='color' key={color.color} onClick={() => editColor(color)}>
             <span>
               <span className="delete" onClick={e => {
                     e.stopPropagation();
