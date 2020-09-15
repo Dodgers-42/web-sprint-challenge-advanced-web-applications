@@ -1,0 +1,23 @@
+Questions
+
+Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
+
+1. Explain what a token is used for.
+A token is an object that can be used to authenticate a user to a server. Tokens contain embedded user data that is used to identify and authenticate the user. JSON Web Tokens (JWTs) are an open standard (learn more about JWTs here) that define a secure way to transmit information between parties using a JSON object.F
+
+2. What steps can you take in your web apps to keep your data secure?
+
+Keep your Software Up-to-Date. ...
+Enforce a Strong Password Policy. ...
+Encrypt your Login Pages. ...
+Use a Secure Host. ...
+Backup your Data. ...
+Scan your Website for Vulnerabilities.
+
+3. Describe how web servers work.
+
+A web server processes incoming network requests over HTTP and several other related protocols. The primary function of a web server is to store, process and deliver web pages to clients. The communication between client and server takes place using the Hypertext Transfer Protocol (HTTP).
+
+4. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+    The primary or most-commonly-used HTTP verbs (or methods, as they are properly called) are POST, GET, PUT, PATCH, and DELETE. These correspond to create, read, update, and delete (or CRUD) operations, respectively.
