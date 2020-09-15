@@ -1,5 +1,5 @@
 import { axiosWithAuth } from '../components/axiosWithAuth'
 
-export default async funtion fetchColor() {
+export default async function fetchColor() {
     return await axiosWithAuth().get('/colors')
 }
